@@ -1,0 +1,32 @@
+extends ../template/template 
+block testimoniales 
+   main
+   section.container.mt-5 
+      h1.text-center #{pagina}
+      .row 
+         .col-md-12
+            blockquote.text-center Lee sobre nuestros clientes y sus experiencias 
+            .row.testimoniales
+               if(testimoniales) 
+                  +testimoniales(testimoniales)
+      .row.justify-content-center
+         .col-md-8
+            h2.text-center AGREGA UN TESTIMONIAL
+            form(action="/testimoniales", method="post") 
+               .form-group 
+                  label(for="nombre") Nombre
+                  input.form-control(type="text", id="nombre" name="nombre" placeholder="Tu nombre" value=nombre)
+                  if(errores)
+                     +error('nombre', errores)
+               .form-group 
+                  label(for="correo") Correo Electrónico
+                  input.form-control(type="email", id="correo" name="correo" placeholder="Tu Correo Electrónico" value=correo)
+                  if(errores)
+                     +error('correo', errores)
+               .form-group 
+                  label(for="mensaje") Mensaje
+                  textarea.form-control(id="mensaje", name="mensaje" rows="10" placeholder="Tu mensaje")=mensaje 
+                  if(errores)
+                     +error('mensaje', errores)
+               button.btn.btn-success.btn-block(type="submit") AGREGAR
+               

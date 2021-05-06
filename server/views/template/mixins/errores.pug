@@ -1,0 +1,4 @@
+mixin error(input, errores)
+   each error in errores
+      if(error.campo === input)
+         p.error #{error.mensaje}

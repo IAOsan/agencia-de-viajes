@@ -1,0 +1,8 @@
+include ./card 
+
+mixin viajes(viajes)
+   if !viajes  
+      h4.display-3.text-muted.text-center.py-5.col-12 No hay viajes 
+   else 
+      each viaje in viajes 
+         +viajeCard(viaje.id, viaje.titulo, viaje.imagen, viaje.precio, viaje.fecha_ida, viaje.fecha_vuelta, viaje.descripcion)

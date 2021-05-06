@@ -1,0 +1,26 @@
+include ./mixins/index
+doctype html
+html(lang="en")
+   head
+      meta(charset="UTF-8")
+      meta(http-equiv="X-UA-Compatible", content="IE=edge")
+      meta(name="viewport", content="width=device-width, initial-scale=1.0")
+      //- fonts
+      link(rel='preconnect' href='https://fonts.gstatic.com')
+      link(href='https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Open+Sans:wght@300;400;600;700&family=Staatliches&display=swap' rel='stylesheet')
+      //- fontawesome
+      link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' integrity='sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==' crossorigin='anonymous')
+      //- bootstrap
+      link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.0/cosmo/bootstrap.min.css' integrity='sha512-PdJ/GdNpssn/PJ867hkDvYX2VHLsJoLtu1glpNDxCH7VacSGJ2FIWrOXWzBN77qV4kGdwOwXZmmznWjAsGHa0g==' crossorigin='anonymous')
+      //- custom css
+      link(rel="stylesheet", href="/css/style.css")
+      //- titulo viene de la variables de cada vista
+      title #{nombreSitio} | #{pagina}
+   body(class=clase)
+      +header
+      block root 
+      block nosotros
+      block viajes
+      block viaje 
+      block testimoniales
+      +footer

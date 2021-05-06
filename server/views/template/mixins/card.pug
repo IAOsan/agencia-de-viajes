@@ -1,0 +1,14 @@
+mixin viajeCard(id, titulo,imagen, precio, fecha_ida, fecha_vuelta, descripcion) 
+   .col-md-6.col-lg-4.mb-4
+      .card 
+         img.img-fluid(src=`img/destinos_${imagen}.jpg`, alt=`${titulo}`)
+         .card-body
+            h2=titulo
+            p
+               i.fas.fa-calendar-alt
+               |  #{fecha_ida} - #{fecha_vuelta}
+            p
+               i.fas.fa-dollar-sign
+               |  #{precio}
+            p=`${descripcion.slice(0, 100)} ...`
+            a.btn.btn-success.btn-block(href=`viajes/${id}`) Más información

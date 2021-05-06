@@ -1,0 +1,9 @@
+include ./testimonial
+
+mixin testimoniales(testimoniales)
+   if !testimoniales  
+      h4.display-3.text-muted.text-center.py-5.col-12 No hay viajes 
+   else 
+      each testimonial in testimoniales 
+         .col-md-6.col-lg-4.mb-4
+            +testimonial(testimonial.mensaje, testimonial.nombre)

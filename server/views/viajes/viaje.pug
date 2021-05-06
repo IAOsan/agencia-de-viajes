@@ -1,0 +1,22 @@
+extends ../template/template 
+block viaje 
+   main
+      section.container.mt-5 
+         if !viaje 
+            p.text-center.display-4.text-muted.py-5 Viaje no encontrado 
+         else 
+            .row 
+               .col-md-5
+                  img.img-fluid(src=`/img/destinos_${viaje.imagen}_ln.jpg`, alt=`${viaje.titulo}`)
+               .col-md-7.text-justify
+                  h1 #{viaje.titulo}
+                  p
+                     i.fas.fa-calendar-alt
+                     |  Fecha Ida: #{viaje.fecha_ida} - Fecha Vuelta: #{viaje.fecha_vuelta}
+                  p
+                     i.fas.fa-dollar-sign
+                     |  #{viaje.precio} MXN
+                  p
+                     i.fas.fa-users
+                     |  #{viaje.disponibles} Disponibles
+                  p #{viaje.descripcion}
