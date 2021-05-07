@@ -6,7 +6,7 @@ const sequelize = require('./database/db');
 // rutas
 const routes = require('./routes/routes');
 // config
-const { nombreSitio, NODE_ENV, PORT } = require('./config/config');
+const config = require('./config/config');
 // app init
 const app = express();
 
@@ -29,9 +29,9 @@ app.use((req, res, next) => {
    res.locals.fechaActual = fecha.getFullYear();
    // nombre de la pagina
    res.locals.nombreSitio =
-      NODE_ENV === 'development'
-         ? nombreSitio.desarrollo
-         : nombreSitio.produccion;
+      config.NODE_ENV === 'development'
+         ? config.nombreSitio.desarrollo
+         : config.nombreSitio.produccion;
    res.locals.ruta = req.path;
    next();
 });
@@ -40,8 +40,8 @@ app.use((req, res, next) => {
 app.use('/', routes);
 
 // llamada al servidor
-app.listen(process.env.PORT, () => {
-   console.log(`Server on port: ${PORT}`);
+app.listen(config.PORT, () => {
+   console.log(`Server on port: ${config.PORT}`);
    // conectarse a la base de datos
    sequelize
       .authenticate()

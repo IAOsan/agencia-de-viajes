@@ -15,7 +15,10 @@ html(lang="en")
       //- custom css
       link(rel="stylesheet", href="/css/style.css")
       //- titulo viene de la variables de cada vista
-      title #{nombreSitio} | #{pagina}
+      if(pagina) 
+         title #{nombreSitio} | #{pagina}
+      else 
+         title #{nombreSitio}
    body(class=clase)
       +header
       block root 
